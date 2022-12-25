@@ -1,12 +1,23 @@
 ﻿#pragma once
 #include <Windows.h>
 
+#include "Bitmap/DrawBitmapDD7.h"
+
+// TODO: Fix ReSharper++ markings
 class Display
 {
-public:
-    DWORD* CreateInstance(DWORD* instance);
+    DrawBitmapDD7* drawBitmapDD7;
+    int unknown0;
+    int unknown1;
+    int unknown2;
+    int unknown3;
 
-    virtual void sub_10026AF0();
+public:
+    Display();
+
+    virtual ~Display() = default;
+
+   /* virtual void sub_10026AF0();
     virtual void sub_10026B20();
     virtual void sub_10026600();
     virtual void sub_1001FF00();
@@ -27,11 +38,13 @@ public:
     virtual void sub_100263F0();
     virtual void sub_10026550();
     virtual void sub_10026490();
-    virtual void sub_10025BF0();
+    */
+	virtual DrawBitmapDD7* getDrawBitmapInstance();
+	/*
     virtual void sub_10026560();
     virtual void sub_10026570();
     virtual void sub_10026610();
-    virtual void sub_100251A0();
-    virtual void sub_10025CC0();
-    virtual void sub_100265A0();
+    virtual void sub_100251A0();*/
+    virtual void createDrawBitmapDD7();
+   // virtual void sub_100265A0();
 };

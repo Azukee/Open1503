@@ -1,4 +1,5 @@
 #include <Windows.h>
+#include <OpenDisplay.cpp>
 
 char ClassName[32];
 HINSTANCE HInstance;
@@ -66,6 +67,9 @@ int LaunchOpenWindow(bool windowedMode)
 		SetForegroundWindow(result);
 		ShowWindow(result, 1);
 		SetFocus(result);
+
+		Display* displayInstance = nullptr;
+		OpenDisplay::CreateDisplayInstance(false, &displayInstance);
 
 
 	}

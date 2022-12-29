@@ -8,6 +8,9 @@
     <ClCompile Include="Display\Bitmap\DrawBitmapDD7.cpp">
       <Filter>Display\Bitmap</Filter>
     </ClCompile>
+    <ClCompile Include="D3DX\D3DXHandler.cpp">
+      <Filter>D3DX</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Display">
@@ -16,6 +19,9 @@
     <Filter Include="Display\Bitmap">
       <UniqueIdentifier>{972a6c83-6166-4b79-b2bf-740df559889f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="D3DX">
+      <UniqueIdentifier>{e139df86-46d0-4eda-a1ea-cfa93b2a07f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display\Display.h">
@@ -23,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="Display\Bitmap\DrawBitmapDD7.h">
       <Filter>Display\Bitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DX\D3DXHandler.h">
+      <Filter>D3DX</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -16,7 +16,12 @@ DrawBitmapDD7* Display::getDrawBitmapInstance()
 
 void Display::createDrawBitmapDD7()
 {
-	const auto bitmap = new DrawBitmapDD7();
+	drawBitmapDD7 = new DrawBitmapDD7();
+}
 
-	drawBitmapDD7 = bitmap;
+void Display::CreateDisplayInstance(bool unknown, Display** display)
+{
+	const auto displayInstance = new Display();
+	displayInstance->createDrawBitmapDD7();
+	*display = displayInstance;
 }

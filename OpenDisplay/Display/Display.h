@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <Windows.h>
 
 #include "Bitmap/DrawBitmapDD7.h"
 
@@ -14,8 +13,6 @@ class Display
 
 public:
     Display();
-
-    virtual ~Display() = default;
 
    /* virtual void sub_10026AF0();
     virtual void sub_10026B20();
@@ -47,4 +44,6 @@ public:
     virtual void sub_100251A0();*/
     virtual void createDrawBitmapDD7();
    // virtual void sub_100265A0();
+
+    static void CreateDisplayInstance(bool unknown, Display** display);
 };

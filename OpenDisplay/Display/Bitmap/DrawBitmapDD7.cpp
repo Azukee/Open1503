@@ -1,5 +1,6 @@
 #include "DrawBitmapDD7.h"
 
+#include "../../Utilities/ColorUtilities.h"
 #include <exception>
 
 DrawBitmapDD7::DrawBitmapDD7()
@@ -92,38 +93,34 @@ void DrawBitmapDD7::sub_1000C9F0(HWND hWnd, GUID* id, const GUID* lpGuid, RECT* 
 
 	if (FAILED(iDirectDrawSurface7_BackBuffer->GetSurfaceDesc(&ddSurfaceDesc2)))
 		throw std::exception("error: failed to get surface descriptor");
-
-	// TODO: this should be it's own function
-	struct random // TODO: figure out what this is
-	{
-		unsigned char r;
-		unsigned char g;
-		unsigned char b;
-		int unknown;
-	};
-
-	auto a1 = new random();
-	auto a2 = ddSurfaceDesc2.ddpfPixelFormat.dwRBitMask;
-	auto a3 = ddSurfaceDesc2.ddpfPixelFormat.dwGBitMask;
-	auto a4 = ddSurfaceDesc2.ddpfPixelFormat.dwBBitMask;
-
-	/*a2 F8000 dwRBitMask
-		a3 0x7E0 dwGBitMask
-		a4 0x1F dwBBitMask*/
-
-	// TODO: make this pretty
-	for (a1->r = 0; a2; ++a1->r)
-		a2 &= a2 - 1;
-	for (a1->g = 0; a3; ++a1->g)
-		a3 &= a3 - 1;
-	for (a1->b = 0; a4; ++a1->b)
-		a4 &= a4 - 1;
-	auto v7 = a1->r + a1->g + a1->b;
-	v7 = (v7 & 0xff) | (v7 > 16);
-	--v7;
-	v7 = (v7 & 0xff) | (v7 & 0xF0);
-	auto result = v7 + 0x20;
-	a1->unknown = result;
+	
+	Color545Struct ccs = { };
+	ColorUtilities::ConvertRGBTo545Format(&ccs, ddSurfaceDesc2.ddpfPixelFormat.dwRBitMask,
+		ddSurfaceDesc2.ddpfPixelFormat.dwGBitMask, ddSurfaceDesc2.ddpfPixelFormat.dwBBitMask);
 
 	surfacePitch = ddSurfaceDesc2.lPitch;
+
+	_surfaceDD7 = new SurfaceDD7(iDirectDrawSurface7_BackBuffer);
+	IDirectDrawClipper* clipper = nullptr;
+	if (FAILED(iDirectDraw7Interface->CreateClipper(NULL, &clipper, nullptr)))
+		throw std::exception("error: failed to create directdraw clipper");
+
+	clipper->SetHWnd(NULL, hWnd);
+	iDirectDrawSurface7_Primary->SetClipper(clipper);
+	clipper->Release();
+	
+	if (FAILED(iDirectDraw7Interface->QueryInterface(IID_IDirect3D7, reinterpret_cast<LPVOID*>(&_direct3D7))))
+		throw std::exception("error: failed to query idirect3d7");
+	
+	if (FAILED(_direct3D7->CreateDevice(*lpGuid, iDirectDrawSurface7_BackBuffer, &_direct3DDevice7)))
+		throw std::exception("error: failed to create direct3d7 device");
+
+	DWORD width = WindowRect.right - WindowRect.left;
+	DWORD height = WindowRect.bottom - WindowRect.top;
+	_D3DVIEWPORT7 viewport = { 0, 0, width, height, 0.0, 1.0 };
+
+	if (FAILED(_direct3DDevice7->SetViewport(&viewport)))
+		throw std::exception("error: failed to set viewport of direct3d7 device");
+
+
 }

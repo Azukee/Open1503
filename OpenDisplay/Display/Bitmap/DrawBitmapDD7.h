@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <ddraw.h>
 #include <d3d.h>
+#include "../Surface/SurfaceDD7.h"
 
 class DrawBitmapDD7
 {
@@ -15,11 +16,11 @@ class DrawBitmapDD7
 	int unknown12222;
 	int surfacePitch;
 	int unknown1222;
-	//tSurfaceDD7* surfaceDD7;
+	SurfaceDD7* _surfaceDD7;
 	int unknown14;
 	IDirectDraw7* iDirectDraw7Interface;
-	int unknown16;
-	int unknown17;
+	IDirect3D7* _direct3D7;
+	IDirect3DDevice7* _direct3DDevice7;
 	IDirectDrawSurface7* iDirectDrawSurface7_Primary;
 	IDirectDrawSurface7* iDirectDrawSurface7_BackBuffer;
 	char field_54;

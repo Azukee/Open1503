@@ -150,11 +150,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Display\Surface\SurfaceDD7.h" />
+    <ClInclude Include="Utilities\Singleton.hpp" />
+    <ClInclude Include="Utilities\ColorUtilities.h" />
     <ClInclude Include="D3DX\D3DXHandler.h" />
     <ClInclude Include="Display\Bitmap\DrawBitmapDD7.h" />
     <ClInclude Include="Display\Display.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Display\Surface\SurfaceDD7.cpp" />
+    <ClCompile Include="Utilities\ColorUtilities.cpp" />
     <ClCompile Include="D3DX\D3DXHandler.cpp" />
     <ClCompile Include="Display\Bitmap\DrawBitmapDD7.cpp" />
     <ClCompile Include="OpenDisplay.cpp" />

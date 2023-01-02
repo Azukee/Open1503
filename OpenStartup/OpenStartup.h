@@ -1,6 +1,7 @@
 #pragma once
 #include <Display/Display.h>
 
+// TODO: make this a singleton
 class OpenStartup
 {
 	char _className[32];

@@ -53,7 +53,7 @@ void OpenStartup::LaunchOpenWindow(bool windowedMode)
 	if (!RegisterClassEx(&window))
 		return;
 
-	HWND hWnd = createOpenWindow(windowedMode, 800, 600);
+	HWND hWnd = createOpenWindow(windowedMode, 1920, 1080);
 	if (hWnd)
 	{
 		SetForegroundWindow(hWnd);

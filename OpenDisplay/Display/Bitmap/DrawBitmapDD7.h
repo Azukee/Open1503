@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <Windows.h>
 #include <ddraw.h>
 #include <d3d.h>
@@ -7,8 +7,8 @@
 class DrawBitmapDD7
 {
 	RECT WindowRect;
-	RECT* WindowScreenPos;
-	int unknown8;
+	RECT WindowScreenPos;
+	int _someOffset;
 	POINT* ScreenPoint;
 	int backBufferCount_maybe;
 	int unknown12;
@@ -23,10 +23,12 @@ class DrawBitmapDD7
 	IDirect3DDevice7* _direct3DDevice7;
 	IDirectDrawSurface7* iDirectDrawSurface7_Primary;
 	IDirectDrawSurface7* iDirectDrawSurface7_BackBuffer;
-	char field_54;
+
+	// TODO: this name is suspicious, reverse!
+	bool _canPresent;
 	unsigned char gap[7];
-	int windowWidth_CHECK;
-	int windowHeight_CHECK;
+	int _windowWidth;
+	int _windowHeight;
 	HWND windowHandle;
 public:
 	DrawBitmapDD7();
@@ -48,14 +50,19 @@ public:
 	virtual void sub_1000D380();
 	virtual void sub_1000D390();
 	virtual void sub_1000C480();*/
-	virtual void sub_1000C9F0(HWND hWnd, GUID* id, const GUID* lpGuid, tagRECT* a5);/*
+	virtual void sub_1000C9F0(HWND hWnd, GUID* id, const GUID* lpGuid, tagRECT* a5);
+	/*
 	virtual void sub_1000C850();
 	virtual void sub_1000CFE0();
 	virtual void sub_1000D290();
-	virtual void sub_1000C680();
+	*/
+	virtual void Present(RECT* sourceRect, RECT* destinationRect);
+	/*
 	virtual void sub_1000C5A0();
 	virtual void sub_1000B9D0();
-	virtual void sub_1000D2D0();
+	*/
+	virtual int sub_1000D2D0(uint32_t a1, uint32_t a2);
+	/*
 	virtual void sub_1000D2A0();
 	virtual void sub_1000D070();
 	virtual void sub_1000C580();

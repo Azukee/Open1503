@@ -186,7 +186,7 @@ void DrawBitmapDD7::Present(RECT* sourceRect, RECT* destinationRect)
 
 			if (SUCCEEDED(returnCode))
 				return;
-		} while (0x00 == DDERR_SURFACEBUSY);
+		} while (returnCode == DDERR_SURFACEBUSY);
 
 		if (returnCode == DDERR_SURFACELOST)
 			break;

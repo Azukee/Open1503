@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Display\Surface\SurfaceDD7.h" />
+    <ClInclude Include="Time\QueryPerformance.h" />
     <ClInclude Include="Utilities\Singleton.hpp" />
     <ClInclude Include="Utilities\ColorUtilities.h" />
     <ClInclude Include="D3DX\D3DXHandler.h" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Display\Surface\SurfaceDD7.cpp" />
+    <ClCompile Include="Time\QueryPerformance.cpp" />
     <ClCompile Include="Utilities\ColorUtilities.cpp" />
     <ClCompile Include="D3DX\D3DXHandler.cpp" />
     <ClCompile Include="Display\Bitmap\DrawBitmapDD7.cpp" />

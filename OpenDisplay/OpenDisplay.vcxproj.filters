@@ -17,6 +17,9 @@
     <ClCompile Include="Display\Surface\SurfaceDD7.cpp">
       <Filter>Display\Surface</Filter>
     </ClCompile>
+    <ClCompile Include="Time\QueryPerformance.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Display">
@@ -33,6 +36,9 @@
     </Filter>
     <Filter Include="Display\Surface">
       <UniqueIdentifier>{06e03e4d-259b-433c-b6ba-3882e86fa1df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{3829cc56-62b7-4a08-84a5-489ef2716abe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +59,9 @@
     </ClInclude>
     <ClInclude Include="Display\Surface\SurfaceDD7.h">
       <Filter>Display\Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="Time\QueryPerformance.h">
+      <Filter>Time</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 
 #include "../../Utilities/ColorUtilities.h"
 #include "../../Time/QueryPerformance.h"
+#include "../../D3DX/D3DXHandler.h"
 #include <exception>
 
 DrawBitmapDD7::DrawBitmapDD7()
@@ -60,7 +61,7 @@ void DrawBitmapDD7::sub_1000C9F0(HWND hWnd, GUID* id, const GUID* lpGuid, RECT* 
 		// TODO: implement
 	}
 
-	ZeroMemory(&ddSurfaceDesc2, sizeof ddSurfaceDesc2);
+	SecureZeroMemory(&ddSurfaceDesc2, sizeof ddSurfaceDesc2);
 	ddSurfaceDesc2.dwSize = sizeof ddSurfaceDesc2;
 	if (FAILED(iDirectDraw7Interface->GetDisplayMode(&ddSurfaceDesc2)))
 		throw std::exception("error: failed to get display mode");
@@ -68,7 +69,7 @@ void DrawBitmapDD7::sub_1000C9F0(HWND hWnd, GUID* id, const GUID* lpGuid, RECT* 
 	if (ddSurfaceDesc2.ddpfPixelFormat.dwRGBBitCount < 16)
 		return; // TODO: show message box (Please select 16bpp Mode !)
 
-	ZeroMemory(&ddSurfaceDesc2, sizeof ddSurfaceDesc2);
+	SecureZeroMemory(&ddSurfaceDesc2, sizeof ddSurfaceDesc2);
 	ddSurfaceDesc2.dwSize = sizeof ddSurfaceDesc2;
 	ddSurfaceDesc2.dwFlags = DDSD_CAPS;
 	ddSurfaceDesc2.ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
@@ -76,7 +77,7 @@ void DrawBitmapDD7::sub_1000C9F0(HWND hWnd, GUID* id, const GUID* lpGuid, RECT* 
 	if (FAILED(iDirectDraw7Interface->CreateSurface(&ddSurfaceDesc2, &iDirectDrawSurface7_Primary, nullptr)))
 		throw std::exception("error: failed to create primary ddraw surface");
 
-	ZeroMemory(&ddSurfaceDesc2, sizeof ddSurfaceDesc2);
+	SecureZeroMemory(&ddSurfaceDesc2, sizeof ddSurfaceDesc2);
 	ddSurfaceDesc2.dwSize = sizeof ddSurfaceDesc2;
 	ddSurfaceDesc2.dwFlags = DDSD_WIDTH | DDSD_HEIGHT | DDSD_CAPS;
 	// TODO: these flags indicate that this surface is NOT the backbuffer, reverse this some more!
@@ -92,7 +93,7 @@ void DrawBitmapDD7::sub_1000C9F0(HWND hWnd, GUID* id, const GUID* lpGuid, RECT* 
 
 	unknown122 = false;
 
-	ZeroMemory(&ddSurfaceDesc2, sizeof ddSurfaceDesc2);
+	SecureZeroMemory(&ddSurfaceDesc2, sizeof ddSurfaceDesc2);
 	ddSurfaceDesc2.dwSize = sizeof ddSurfaceDesc2;
 
 	if (FAILED(iDirectDrawSurface7_BackBuffer->GetSurfaceDesc(&ddSurfaceDesc2)))
@@ -203,8 +204,8 @@ void DrawBitmapDD7::Present(RECT* sourceRect, RECT* destinationRect)
 int DrawBitmapDD7::sub_1000D2D0(uint32_t a1, uint32_t a2)
 {
 	if (a2 == 1)
-		return 0;
+		return D3DXHandler::Get().sub_1000C7A0(iDirectDrawSurface7_BackBuffer, nullptr, a2);
 	if (a2)
 		throw std::exception("error: unknown exception");
-	return 1;
+ 	return D3DXHandler::Get().sub_1000C7A0(iDirectDrawSurface7_Primary, nullptr, a2);
 }

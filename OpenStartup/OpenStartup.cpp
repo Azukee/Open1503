@@ -67,6 +67,8 @@ void OpenStartup::LaunchOpenWindow(bool windowedMode)
 		DrawBitmapDD7* drawBitmapInstance = displayInstance->getDrawBitmapInstance();
 
 		drawBitmapInstance->sub_1000C9F0(hWnd, nullptr, &IID_IDirect3DHALDevice, nullptr);
+		drawBitmapInstance->sub_1000D2D0(1, NULL);
+		drawBitmapInstance->Present(nullptr, nullptr);
 	}
 
 }

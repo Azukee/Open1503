@@ -54,9 +54,6 @@
     <ClInclude Include="Utilities\ColorUtilities.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Utilities\Singleton.hpp">
-      <Filter>Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="Display\Surface\SurfaceDD7.h">
       <Filter>Display\Surface</Filter>
     </ClInclude>

@@ -1,6 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp" />
+    <ClInclude Include="OpenFrame.hpp" />
+    <ClInclude Include="Frames\FrameStartupSplash.h">
+      <Filter>Frames</Filter>
+    </ClInclude>
+    <ClInclude Include="Frames\AnnoFrameStartup.h">
+      <Filter>Frames</Filter>
+    </ClInclude>
+    <ClInclude Include="Frames\FrameStartup.h">
+      <Filter>Frames</Filter>
+    </ClInclude>
+    <ClInclude Include="Time\QueryPerformance.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Frames">
+      <UniqueIdentifier>{06a86ec7-fed9-467a-8dc4-910b15dab826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{1b4c2098-f0f6-44d5-b39c-fc38f49abcaa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Frames\FrameStartupSplash.cpp">
+      <Filter>Frames</Filter>
+    </ClCompile>
+    <ClCompile Include="Frames\AnnoFrameStartup.cpp">
+      <Filter>Frames</Filter>
+    </ClCompile>
+    <ClCompile Include="Frames\FrameStartup.cpp">
+      <Filter>Frames</Filter>
+    </ClCompile>
+    <ClCompile Include="Time\QueryPerformance.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

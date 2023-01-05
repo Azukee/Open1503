@@ -1,6 +1,6 @@
 #pragma once
 #include <Windows.h>
-#include "../Utilities/Singleton.hpp"
+#include <Architecture/Singleton.hpp>
 
 #include <d3d.h>
 

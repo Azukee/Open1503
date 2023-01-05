@@ -1,6 +1,7 @@
 #pragma once
-#include "../Utilities/Singleton.hpp"
+#include <Architecture/Singleton.hpp>
 #include <windows.h>
+#include <exception>
 
 class QueryPerformance : public Singleton<QueryPerformance>
 {
